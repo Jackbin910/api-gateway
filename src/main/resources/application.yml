@@ -8,3 +8,12 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
+
+#/order-service/api/v1/order/save?product_id=1&user_id=1
+zuul:
+  routes:
+    order-service: /apigateway/**
+    product-service: /apigateway/**
+  ignored-patterns: /*-service/**
+  #\u5FFD\u7565\u6574\u4E2A\u670D\u52A1\uFF0C\u4E0D\u5BF9\u5916\u63D0\u4F9B\u63A5\u53E3
+  #ignored-services: product-service
